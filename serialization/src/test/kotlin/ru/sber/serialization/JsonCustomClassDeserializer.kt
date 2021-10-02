@@ -34,10 +34,10 @@ class JsonCustomClassDeserializer {
 class CustomClassDeserializer: JsonDeserializer<Client7>() {
     override fun deserialize(p0: JsonParser?, p1: DeserializationContext?): Client7 {
        val client = p0?.readValueAsTree<ObjectNode>()?.get("client").toString()
-        val arrOfNames = client.replace("\"", "").split(" ")
-        return Client7(firstName = arrOfNames.component2(),
-        lastName = arrOfNames.component1(),
-        middleName = arrOfNames.component3())
+        val names = client.replace("\"", "").split(" ")
+        return Client7(firstName = names.component2(),
+        lastName = names.component1(),
+        middleName = names.component3())
     }
 
 
